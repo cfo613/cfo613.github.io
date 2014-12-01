@@ -1,122 +1,243 @@
 <html>
+<head>
+  <title>New Year's Eve Countdown</title>
+  <link href = "./style.css" rel = "stylesheet" type = "text/css">
+</head>
+<element class = "canvas">
 <body>
-  <canvas id="the_canvas" width="400" height="400"></canvas>
-  <script>
-  var canvas = document.getElementById('the_canvas');
-  var ctx = canvas.getContext('2d');
-  var moveRight = true;
-  var handleKeyDown = function(evt) {
-    if (evt.keyCode === 37) {
-      //Left arrow was pressed
-      moveRight = false;
-    } else if (evt.keyCode === 39) {
-      //Left arrow was pressed
-      moveRight = true;
+  <header>Rudimentary New Year's Eve Countdown</header>
+  <div class = "canvas">
+    <canvas id = "myCanvas" width = "500" height = "500"></canvas>
+    <script>
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var clearBackground = function() {
+      ctx.fillStyle = "black";
+      ctx.fillRect(0,0,canvas.width, canvas.height);
     }
-  }
-  var moveUp = true;
-  var handleKeyUp = function(evt) {
-    if (evt.keyCode === 38) {
-      //up arrow was pressed
-      moveUp = true;
-    } else if (evt.keyCode === 40) {
-      //down arrow was pressed
-      moveUp = false;
+
+    var nyeBackground = function() {
+
+      //draw building needle
+      ctx.beginPath();
+      ctx.moveTo(250,0);
+      ctx.lineTo(250,415);
+
+      //draw left side of building
+      ctx.moveTo(150,500);
+      ctx.lineTo(150,415);
+      //draw top of building
+      ctx.moveTo(150,415);
+      ctx.lineTo(350,415);
+      //draw right side of building
+      ctx.moveTo(350,415);
+      ctx.lineTo(350,500);
+      //draw bottom of building
+      ctx.moveTo(350,500);
+      ctx.lineTo(150,500);
+
+      //style building
+      ctx.closePath();
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = "white";
+      ctx.stroke();
+
+      //draw windows
+      ctx.fillStyle = "white";
+      ctx.fillRect (175,440,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (175,470,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (210,440,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (210,470,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (245,440,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (245,470,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (280,440,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (280,470,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (310,440,15,15);
+      ctx.fillStyle = "white";
+      ctx.fillRect (310,470,15,15);
     }
-  }
-  //don't worry about what window is,
-  //just realize that we are telling
-  //the browser to call our handleKeyDown
-  //function defined above when a user
-  //presses a key
-  window.addEventListener('keydown',handleKeyDown,true);
-  window.addEventListener('keydown',handleKeyUp, true);
-  var x = 75;
-  var y = 75;
-  var z = 150;
-  var a = 300;
-  var b = 275;
-  var draw = function() {
-    //clear background
-    ctx.fillStyle = "white";
-    ctx.fillRect(0,0, canvas.width, canvas.height);
-    if (moveRight === true) {
-      //move the square to the right
-      x = x + 1;
-    } else {
-      //move the square to the left
-      x = x - 1;
+
+    var fireworks = function() {
+      //draw firework 1
+      ctx.beginPath();
+      ctx.moveTo(70,30);
+      ctx.bezierCurveTo(70,20,80,10,100,5);
+      ctx.moveTo(75,40);
+      ctx.bezierCurveTo(80,40,100,20,140,30);
+      ctx.moveTo(75,50);
+      ctx.bezierCurveTo(90,40,120,40,130,70);
+      ctx.moveTo(80,60);
+      ctx.bezierCurveTo(90,60,100,60,120,100);
+      ctx.moveTo(65,65);
+      ctx.bezierCurveTo(60,70,60,90,65,120);
+      ctx.moveTo(60,55);
+      ctx.bezierCurveTo(50,45,20,90,30,110);
+      ctx.moveTo(60,50);
+      ctx.bezierCurveTo(50,40,20,50,10,60);
+      ctx.moveTo(65,45);
+      ctx.bezierCurveTo(60,35,40,10,20,20);
+
+      //style firework 1
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "yellow";
+      ctx.stroke();
+
+      //draw firework 2
+      ctx.beginPath();
+      ctx.moveTo(120,180);
+      ctx.bezierCurveTo(120,170,130,160,150,155);
+      ctx.moveTo(125,190);
+      ctx.bezierCurveTo(130,190,150,170,190,180);
+      ctx.moveTo(125,200);
+      ctx.bezierCurveTo(140,190,170,190,180,220);
+      ctx.moveTo(130,210);
+      ctx.bezierCurveTo(140,210,150,210,170,250);
+      ctx.moveTo(115,215);
+      ctx.bezierCurveTo(110,220,110,240,105,270);
+      ctx.moveTo(110,205);
+      ctx.bezierCurveTo(100,195,70,240,80,260);
+      ctx.moveTo(110,200);
+      ctx.bezierCurveTo(100,190,70,200,60,210);
+      ctx.moveTo(105,195);
+      ctx.bezierCurveTo(110,185,90,160,70,170);
+
+      //style firework 2
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+
+      //draw firework 3
+      ctx.beginPath();
+      ctx.moveTo(370,30);
+      ctx.bezierCurveTo(370,20,380,10,400,5);
+      ctx.moveTo(375,40);
+      ctx.bezierCurveTo(380,40,400,20,440,30);
+      ctx.moveTo(375,50);
+      ctx.bezierCurveTo(390,40,420,40,430,70);
+      ctx.moveTo(380,60);
+      ctx.bezierCurveTo(390,60,400,60,420,100);
+      ctx.moveTo(365,65);
+      ctx.bezierCurveTo(360,70,360,90,365,120);
+      ctx.moveTo(360,55);
+      ctx.bezierCurveTo(350,45,320,90,330,110);
+      ctx.moveTo(360,50);
+      ctx.bezierCurveTo(350,40,320,50,310,60);
+      ctx.moveTo(365,45);
+      ctx.bezierCurveTo(360,35,340,10,320,20);
+
+      //style firework 3
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "blue";
+      ctx.stroke();
+
+      //draw firework 4
+      ctx.beginPath();
+      ctx.moveTo(70,330);
+      ctx.bezierCurveTo(70,320,80,310,100,305);
+      ctx.moveTo(75,340);
+      ctx.bezierCurveTo(80,340,100,320,140,330);
+      ctx.moveTo(75,350);
+      ctx.bezierCurveTo(90,340,120,340,130,370);
+      ctx.moveTo(80,360);
+      ctx.bezierCurveTo(90,360,100,360,120,400);
+      ctx.moveTo(65,365);
+      ctx.bezierCurveTo(60,370,60,390,65,420);
+      ctx.moveTo(60,355);
+      ctx.bezierCurveTo(50,345,20,390,30,410);
+      ctx.moveTo(60,350);
+      ctx.bezierCurveTo(50,340,20,350,10,360);
+      ctx.moveTo(65,345);
+      ctx.bezierCurveTo(60,335,40,310,20,320);
+
+      //style firework 4
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "purple";
+      ctx.stroke();
+
+      //draw firework 5
+      ctx.beginPath();
+      ctx.moveTo(370,230);
+      ctx.bezierCurveTo(370,220,380,210,400,205);
+      ctx.moveTo(375,240);
+      ctx.bezierCurveTo(380,240,400,220,440,230);
+      ctx.moveTo(375,250);
+      ctx.bezierCurveTo(390,240,420,240,430,270);
+      ctx.moveTo(380,260);
+      ctx.bezierCurveTo(390,260,400,260,420,300);
+      ctx.moveTo(365,265);
+      ctx.bezierCurveTo(360,270,360,290,365,320);
+      ctx.moveTo(360,255);
+      ctx.bezierCurveTo(350,245,320,290,330,310);
+      ctx.moveTo(360,250);
+      ctx.bezierCurveTo(350,240,320,250,310,260);
+      ctx.moveTo(365,245);
+      ctx.bezierCurveTo(360,235,340,210,320,220);
+
+      //style firework 5
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "pink";
+      ctx.stroke();
+
     }
-    //make sure it doesn't go off the screen
-    if (x > canvas.width) {
-      x %= canvas.width;
-      x = 75;
+
+    //not yet set
+    var intervalID;
+    var secondsCounted = 0;
+
+    var draw = function() {
+    //include backgrounds
+      clearBackground();
+      nyeBackground();
+
+    //create ball to drop
+      var x = 150;
+      var y = secondsCounted*25;
+
+      var img1 = new Image();
+      img1.onload = function() {
+        ctx.drawImage(img1,x,y);
+      }
+      img1.src = "./nyeball2.png"
+
+      secondsCounted++;
+
+    //after 10 seconds...
+      if (secondsCounted > 10) {
+        //stop drawing image
+        clearInterval(intervalID);
+        //display fireworks
+        fireworks();
+        //display happy new year
+        var img2 = new Image();
+        img2.onload = function() {
+          ctx.drawImage(img2,175,100);
+        };
+        img2.src = "./happynewyears.png";
+        //display Homer
+        var img3 = new Image();
+        img3.onload = function() {
+          ctx.drawImage(img3,300,300);
+        };
+        img3.src = "./woohoo.png";
+        //play audio
+        var homer = new Audio("http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(2).wav");
+        homer.play();
+      }
     }
-    if (x < 0) {
-      x = 75;
-    }
-    if (moveUp === true) {
-      //  move the arms up
-      z = z - 1;
-      a = a - 1;
-      b = b - 1;
-    } else if (moveUp === false) {
-      // move the arms down
-      z = z + 1;
-      a = a + 1;
-      b = b + 1;
-    }
-    //make sure arms and legs do not go too low or too high
-    if (z > 250 || z < 100 ) {
-      z = 150;
-    }
-    if ( a > 300 || a < 200 ) {
-      a = 300;
-    }
-    if ( b > 275 || b < 175 ) {
-      b = 275;
-    }
-    //draw person in new position
-    ctx.beginPath();
-    //head
-    ctx.arc(x,y,50,0,Math.PI*2,true);       // Outer circle
-    ctx.moveTo(x-20,y+20);
-    ctx.lineTo(x+20,y+20);                  // Mouth
-    ctx.moveTo(x-10,y-10);
-    ctx.arc(x-15,y-10,5,0,Math.PI*2,true);  // Left eye
-    ctx.moveTo(x+20,y-10);
-    ctx.arc(x+15,y-10,5,0,Math.PI*2,true);  // Right eye
-    ctx.moveTo(x,y);
-    ctx.arc(x,y,5,0,Math.PI,false);         // Nose
-    //body
-    ctx.moveTo(x,y+50);
-    ctx.lineTo(x,y+150);                    // Body
-    ctx.moveTo(x,y+100);
-    ctx.lineTo(x+50,z);                     // Right arm
-    ctx.moveTo(x,y+100);
-    ctx.lineTo(x-50,z);                     // Left arm
-    ctx.moveTo(x,y+150);
-    ctx.lineTo(x+50,a);                 // Right leg
-    // ctx.moveTo(x+50,y+225);
-    // ctx.lineTo(x+75,b);                 // Right foot
-    ctx.moveTo(x,y+150);
-    ctx.lineTo(x-50,a);                 // Left leg
-    // ctx.moveTo(x-50,y+225);
-    // ctx.lineTo(x-75,b);                 // Left foot
-    //hair
-    ctx.moveTo(x-35,y-35);
-    ctx.lineTo(x-45,y-45);                  // Hair 1
-    ctx.moveTo(x-18,y-46);
-    ctx.lineTo(x-25,y-58);                  // Hair 2
-    ctx.moveTo(x,y-50);
-    ctx.lineTo(x,y-63);                     // Hair 3
-    ctx.moveTo(x+17,y-46);
-    ctx.lineTo(x+24,y-58);                  // Hair 4
-    ctx.moveTo(x+35,y-35);
-    ctx.lineTo(x+45,y-45);                  // Hair 5
-    ctx.stroke();
-  };
-  setInterval(draw, 20);
-  </script>
+    draw();
+    var intervalID = setInterval(draw, 1000);
+    </script>
+  </div>
 </body>
+<footer>&copy 2014. Ciara Foran</footer>
 </html>

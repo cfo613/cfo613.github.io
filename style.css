@@ -1,0 +1,29 @@
+header {
+  font-family: verdana;
+  color: #C2C2D6;
+  text-align: center;
+  background-color: #000099;
+  padding: 10px;
+  text-shadow: gray 0 2px;
+  }
+body {background: #878792}
+div {
+  background-color: #212182;
+  border: 5px #000000 solid;
+  width: 800px;
+  }
+.canvas {
+  border: 3px #000000 solid;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 500px;
+  }
+footer {
+  background-color: #6666C2;
+  text-align: left;
+  font-style: italic;
+  padding: 10px;
+  }
